@@ -1,0 +1,204 @@
+/*-----------------------------------------------------
+        Suppression marge et padding desktop :
+-----------------------------------------------------*/
+body, html{
+    margin: 0;
+    padding: 0;
+}
+/*-----------------------------------------------------
+                    Body desktop:
+-----------------------------------------------------*/
+h2, h3, label, .champ, #select{
+    padding-left: 20px;;
+}
+h3{
+    font-size: 1.2em;
+}
+#message{
+    padding-left: 20px;
+    font-weight: bold;
+    font-family: Roboto; 
+}
+p{
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+p, h1, label, li, a, h3, h2{
+    font-family: Roboto;
+}
+a{
+    text-decoration: none;
+}
+#id_task{
+    visibility: hidden;
+    height: 1px;
+}
+#form_detail_task{
+    transform: translateY(-20px);
+    font-family: Roboto;
+    font-size: 1.2em;
+}
+textarea{
+    width: 360px;
+}
+.ui-dialog{
+    transform: translateX(-30px);
+}
+#global p{
+    font-size: 1.2em;
+}
+/* titre liste des tâches */
+h2{
+    font-family: Roboto;
+    font-size: 1.4em;
+}
+input{
+    transform: translateY(10px);
+    transform: translateX(20px);
+}
+/*-----------------------------------------------------
+                    Menu desktop :
+-----------------------------------------------------*/
+nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: blue;
+}
+nav ul{
+    display: flex;
+    padding-right: 50px;
+    background-color: blue;
+}
+nav a{
+    text-decoration: none;
+}
+nav li{
+    padding: 10px;
+    margin-left: 50px;
+    list-style: none;
+    color: white;
+    border: solid white 1px;
+    border-radius: 5px;
+    font-family: Roboto;
+    cursor: pointer;
+}
+nav li:hover{
+    background-color: white;
+    border-color:blue;
+    color:blue;
+}
+nav .burgerButton{
+    margin: 10px;
+    cursor: pointer;
+    display: none;
+}
+h1{
+    padding-left: 20px;
+    color:white;
+}
+nav .brand{
+    margin: 10px;
+    cursor: pointer;   
+}
+.subnav{
+    display: flex;
+    background-color:blue; 
+}
+
+nav .subnav>div {
+    display: flex;
+    color:#a0c1b8 ;
+    font-family: Roboto;
+}
+#title_update_task{
+    font-size: 1.4em;
+    font-family: Roboto;
+    color: rgb(34, 33, 34);
+    text-decoration: underline;
+}
+/*-----------------------------------------------------
+                    Menu Mobile :
+-----------------------------------------------------*/
+@media screen and (max-width: 600px){
+
+    nav{
+        justify-content: center;
+        flex-direction: column;
+        z-index: 0;
+        background-color: transparent;
+    }
+    nav ul{
+        z-index: 1;
+        flex-direction: column;
+        margin-top: -10px;
+        padding-bottom: 20px;
+        display: none;      
+    }
+    .subnav{
+        z-index: 10;
+    }
+    nav li{
+        z-index: 2;
+        margin-top: 20px;
+        margin-left: 0px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        font-size: large;
+    }  
+    nav .burgerButton{
+        margin: 10px;
+        cursor: pointer;
+        display: flex;
+    }    
+    nav>.subnav>div{
+        display: none;
+    }
+    #message, label, p{
+        font-size: 1.1em;
+    }
+    /* centrage*/
+    #global {
+        margin-left: 0;
+        margin-right: 0;
+        width: 350px; /* largeur obligatoire pour être centré */
+    }
+    h2{
+        font-size: 1.4em;
+        padding-left: 26px;
+    }
+    #title_update_task{
+        font-size: 1.4em;
+        font-family: Roboto;
+        text-decoration: underline;
+    }
+    /* liste des tâches */
+    a{
+        font-size: 0.9em;
+    }
+}
+/*-----------------------------------------------------
+                Animation Menu Mobile :
+-----------------------------------------------------*/
+@keyframes slidein {
+    from {
+      transform: translate3d(0, -100%, 0);      
+      visibility: visible;
+    }
+  
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }  
+  
+@keyframes slideout {
+    from {
+        transform: translate3d(0, 0, 0);
+      }
+    
+      to {
+        visibility: hidden;
+        transform: translate3d(0, -100%, 0);
+      }
+  }
+
