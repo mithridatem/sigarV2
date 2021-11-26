@@ -19,7 +19,7 @@
         <input type="date" name="start" id="start"><br>
         <h3>Saisir la date de fin des cours : </h3>
         <input type="date" name="end" id="end"><br>
-        <h3>Saisir le nom de la session</h3>
+        <h3>Saisir le nom de la session : </h3>
         <input type="text" name="tag_cours" id="session"><br>
         <br>
         <input type="submit" value="Ajouter">

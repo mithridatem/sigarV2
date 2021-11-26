@@ -12,7 +12,7 @@ h2, h3, label, .champ, #select{
     padding-left: 20px;;
 }
 h3{
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 #message{
     padding-left: 20px;
@@ -24,7 +24,7 @@ p{
     font-weight: bold;
 }
 
-p, h1, label, li, a, h3, h2{
+p, h1, label, li, a, h3, h2, input{
     font-family: Roboto;
 }
 a{
@@ -63,12 +63,12 @@ input{
 nav{
     display: flex;
     justify-content: space-between;
-    background-color: blue;
+    background-color: rgb(30, 30, 30);
 }
 nav ul{
     display: flex;
     padding-right: 50px;
-    background-color: blue;
+    background-color: rgb(30, 30, 30);;
 }
 nav a{
     text-decoration: none;
@@ -85,8 +85,8 @@ nav li{
 }
 nav li:hover{
     background-color: white;
-    border-color:blue;
-    color:blue;
+    border-color:rgb(30, 30, 30);;
+    color:rgb(30, 30, 30);;
 }
 nav .burgerButton{
     margin: 10px;
@@ -103,7 +103,7 @@ nav .brand{
 }
 .subnav{
     display: flex;
-    background-color:blue; 
+    background-color:rgb(30, 30, 30);; 
 }
 
 nav .subnav>div {
@@ -116,6 +116,10 @@ nav .subnav>div {
     font-family: Roboto;
     color: rgb(34, 33, 34);
     text-decoration: underline;
+}
+#securise{
+    padding-top: 2px;
+    height: 60px;
 }
 /*-----------------------------------------------------
                     Menu Mobile :

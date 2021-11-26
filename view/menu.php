@@ -3,7 +3,8 @@
         <div class="subnav">
             <img src="./img/menu.svg"  class="burgerButton" width="40px">
             <div>
-                <h1>SIGAR</h1> 
+                <h1>SIGAR</h1>
+                <img src="./img/logonum.png" id="securise"> 
             </div>
         </div>
         <ul>
