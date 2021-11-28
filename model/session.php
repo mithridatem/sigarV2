@@ -48,6 +48,25 @@
             die('Erreur : '.$e->getMessage());
             }
         }
+        //afficher nom de la session
+        public function showNameSession($bdd, $id){
+            try
+            {                   
+               //requête pour stocker le contenu de toute la table task dans le tableau $donnees
+               $reponse = $bdd->query('SELECT name_session FROM session where id_session= '.$id.'');
+               //parcours du résultat de la requête
+               while($donnees = $reponse->fetch())
+               {   
+                  return $donnees['name_session'];
+               }                
+            }
+            catch(Exception $e)
+            {
+            //affichage d'une exception en cas d’erreur
+            die('Erreur : '.$e->getMessage());
+            }
+    
+        }
         //fonction afficher la liste des sessions (menu déroulant):
         public function generateMenu($bdd)
         {      

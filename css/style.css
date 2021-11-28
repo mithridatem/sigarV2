@@ -60,6 +60,12 @@ input{
 .btn-submit{
     transform: translateX(20px);
 }
+.etape{
+    font-size: 1.2em;
+    font-family: Roboto;
+    color: red;
+    padding-left: 20px;
+}
 /*-----------------------------------------------------
                     Menu desktop :
 -----------------------------------------------------*/

@@ -56,8 +56,8 @@
                             Méthodes :
         -----------------------------------------------------*/
         //fonction ajout des cours
-        public function addCours($bdd, $crenaux){
-            $tag= $this->tag_cours;
+        public function addCours($bdd, $tag, $crenaux){
+            
             $date= $this->date_cours;
             try
             {   

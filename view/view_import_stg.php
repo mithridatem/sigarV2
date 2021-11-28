@@ -1,5 +1,4 @@
-
-    <html lang="en">
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,15 +13,27 @@
         <title>import des stagiaires</title>
     </head>
     <body>
+        <p class = etape>Etape 2</p>
         <h2>Importer la liste des stagiaires : </h2>
         <form enctype="multipart/form-data" action="import_stg.php" method="post">    
             <label class="col-md-4 control-label">Sélectionner un fichier CSV</label>
             <input type="file" name="file" id="file" accept=".csv">
             <br />
             <br />
+            <h3>Sélectionner la session : </h3>
+            <p><select name="id_session">
+            <?php
+                //création d'un objet category
+                $session = new Session($bdd);
+                //appel de la Méthode génération du menu déroulant liste des catégories
+                $session->generateMenu($bdd);
+            ?>
+            </select></p>
+            <br>
             <button type="submit" id="submit" name="import" class="btn-submit">Importer</button>
             <br />
         </form>
+        <a href="addCours.php" class = "etape">Ajouter les cours -> Créer les cours (etape 3)</a>
     </body>
-    </html>
+</html>
 

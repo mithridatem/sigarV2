@@ -22,16 +22,18 @@
         /*-----------------------------------------------------
                             Méthodes:
         -----------------------------------------------------*/
-        public function addStagiaire($bdd, $name, $prenom){
+        public function addStagiaire($bdd, $name, $prenom, $id){
             try
             {   
                 //requête ajout d'un utilisateur
-                $req = $bdd->prepare('INSERT INTO stagiaire(name_stg, prenom_stg) 
-                VALUES (:name_stg, :prenom_stg)');
+                $req = $bdd->prepare('INSERT INTO stagiaire(name_stg, prenom_stg, id_session) 
+                VALUES (:name_stg, :prenom_stg, :id_session)');
                 //éxécution de la requête SQL
                 $req->execute(array(
                 'name_stg' => $name,
                 'prenom_stg' => $prenom,
+                'id_session' => $id,
+
             ));
             }
             catch(Exception $e)

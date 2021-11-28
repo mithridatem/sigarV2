@@ -5,6 +5,8 @@
     include './utils/connectBdd.php';
     /*import du model */
     include './model/cours.php';
+    include './model/session.php';
+
     /*import du menu */
     include './view/menu.php';
     /*import de la vue */
@@ -12,7 +14,7 @@
     /*-----------------------------------------------------
                             Tests :
     -----------------------------------------------------*/    
-    if(isset($_POST['start']) AND isset($_POST['end']) AND isset($_POST['tag_cours'])){
+    if(isset($_POST['start']) AND isset($_POST['end']) AND isset($_POST['id_session'])){
         //récupération de la date de début
         $begin = new DateTime($_POST['start']);
         //récupération de la date de début
@@ -29,10 +31,12 @@
         $apresMidi = "PM";
         //tableau jour de la semaine en francais
         $jours = Array('Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi');
-        //récupération du tag des cours
-        $tag = $_POST['tag_cours'];
+        
         //instanciation d'un nouvel objet cours
         $cours = new Cours();
+        //récupération du tag des cours
+        $session = new Session();
+        $tag = $session->showNameSession($bdd, $_POST['id_session']);
         //Boucle pour création des cours
         foreach($daterange as $date){
             //test si le jour de la semaine est égal à dimanche ou lundi
@@ -48,8 +52,8 @@
                 //setter tag
                 $cours->setTagCours($tag);
                 $cours->setDateCours($dDate);
-                $cours->addCours($bdd, $matin);
-                $cours->addCours($bdd, $apresMidi);
+                $cours->addCours($bdd, $tag, $matin);
+                $cours->addCours($bdd, $tag, $apresMidi);
                 echo "$dDate<br>";
                 echo "$tag<br>";
                 echo "$matin<br>";

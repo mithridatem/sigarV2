@@ -43,3 +43,14 @@ matchMedia.addListener(handleTabletChange);
 //verification au demarage
 handleTabletChange(matchMedia);
 
+//menu fixed
+var header = document.querySelector(".subnav");
+
+function scrolled(){
+	var windowHeight = document.body.clientHeight,
+		currentScroll = document.body.scrollTop || document.documentElement.scrollTop;
+	
+	header.className = (currentScroll >= windowHeight - header.offsetHeight) ? "fixed" : "";
+}
+
+addEventListener("scroll", scrolled, false);
