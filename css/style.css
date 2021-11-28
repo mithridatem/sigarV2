@@ -57,6 +57,9 @@ input{
     transform: translateY(10px);
     transform: translateX(20px);
 }
+.btn-submit{
+    transform: translateX(20px);
+}
 /*-----------------------------------------------------
                     Menu desktop :
 -----------------------------------------------------*/

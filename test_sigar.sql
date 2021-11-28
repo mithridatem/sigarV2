@@ -12,7 +12,7 @@ CREATE TABLE module(
         id_mod   Int  Auto_increment  NOT NULL ,
         name_mod Varchar (50) NOT NULL
 	,CONSTRAINT module_PK PRIMARY KEY (id_mod)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 #------------------------------------------------------------
@@ -23,7 +23,7 @@ CREATE TABLE session(
         id_session   Int  Auto_increment  NOT NULL ,
         name_session Varchar (50) NOT NULL
 	,CONSTRAINT session_PK PRIMARY KEY (id_session)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 #------------------------------------------------------------
@@ -38,7 +38,7 @@ CREATE TABLE stagiaire(
 	,CONSTRAINT stagiaire_PK PRIMARY KEY (id_stg)
 
 	,CONSTRAINT stagiaire_session_FK FOREIGN KEY (id_session) REFERENCES session(id_session)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 #------------------------------------------------------------
@@ -51,7 +51,7 @@ CREATE TABLE admin(
         pseudo_adm Varchar (50) NOT NULL ,
         mdp_adm    Varchar (100) NOT NULL
 	,CONSTRAINT admin_PK PRIMARY KEY (id_adm)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 #------------------------------------------------------------
@@ -65,7 +65,7 @@ CREATE TABLE formateur(
         pseudo_form     Varchar (50) NOT NULL ,
         mdp_form        Varchar (100) NOT NULL
 	,CONSTRAINT formateur_PK PRIMARY KEY (id_form)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 #------------------------------------------------------------
@@ -83,7 +83,7 @@ CREATE TABLE cours(
 
 	,CONSTRAINT cours_module_FK FOREIGN KEY (id_mod) REFERENCES module(id_mod)
 	,CONSTRAINT cours_formateur0_FK FOREIGN KEY (id_form) REFERENCES formateur(id_form)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 #------------------------------------------------------------
@@ -98,5 +98,5 @@ CREATE TABLE participer(
 
 	,CONSTRAINT participer_stagiaire_FK FOREIGN KEY (id_stg) REFERENCES stagiaire(id_stg)
 	,CONSTRAINT participer_cours0_FK FOREIGN KEY (id_cours) REFERENCES cours(id_cours)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
