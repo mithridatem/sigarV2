@@ -64,8 +64,6 @@
             }
         }
         echo "nbr de jours = $cpt";
-        
-
     }
 
 
