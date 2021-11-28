@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,10 +10,23 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     <script src="./script/modal.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <title>affecter les stagiaires -> cours</title>
+    <title>Créer les cours</title>
 </head>
 <body>
-    <p class = etape>Etape 4</p>
-    <h2>Affecter les stagiaires a la session (cours) : </h2>
+    <p class = etape>Etape 3</p>
+    <h2>Affecter les stagiaires aux cours :</h2>
+    <form action="" method="get">
+        <h3>Saisir le nom de la session : </h3>
+            <p><select name="id_session">
+            <?php
+                //création d'un objet category
+                $session = new Session($bdd);
+                //appel de la Méthode génération du menu déroulant liste des catégories
+                $session->generateMenu($bdd);
+            ?>
+            </select></p>
+        <br>
+        <input type="submit" value="Afficher">
+    </form>
 </body>
 </html>

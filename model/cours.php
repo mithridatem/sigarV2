@@ -77,8 +77,39 @@
             die('Erreur : '.$e->getMessage());
             }
         }
-
-
+        //méthode update task (valider une tâche)
+        public function affectcours($bdd, $value)
+        {
+            try
+            {
+                //requete pour update le statut de la tache = 1 (true)
+                $req = $bdd->query('INSERT INTO participer SET validate_task = 1 Where id_task ='.$value.'');
+                 //redirection vers show_task.php
+                 header("Location: show_task.php");
+            }
+            catch(Exception $e)
+            {   //affichage d'une exception
+                die('Erreur : '.$e->getMessage());
+            }
+        }
+        //afficher les cours :
+        public function showCours($bdd, $session){
+            try
+            {
+                $req = $bdd->prepare('select id_cours from cours where tag_cours = $session');
+                //éxécution de la requête SQL
+                $req->execute(array(
+                'tag_cours' => $tag,
+                'date_cours' => $date,
+                'crenaux_cours' => $crenaux,
+            ));
+            }
+            catch(Exception $e)
+            {
+            //affichage d'une exception en cas d’erreur
+            die('Erreur : '.$e->getMessage());
+            } 
+        }
 
     }
 

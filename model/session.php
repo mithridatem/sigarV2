@@ -79,7 +79,8 @@
                {   
                   //liste deroulante <select> html
                   echo '<option value="'.$donnees['id_session'].'">'.$donnees['name_session'].'</option>';
-               }                
+                }
+
             }
             catch(Exception $e)
             {
