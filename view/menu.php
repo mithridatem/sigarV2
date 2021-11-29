@@ -33,6 +33,7 @@
 
 ?>      
         <a href="./index.php"><li>Connexion</li></a>
+        <a href="./addAdm.php"><li>Créer un compte</li></a>
         <a href="./createSession.php"><li>Créer une session</li></a>
         <a href="./import_stg.php"><li>Importer les stagiaires</li></a>
         <a href="./addCours.php"><li>Ajouter les cours</li></a>

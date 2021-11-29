@@ -130,6 +130,9 @@ nav .subnav>div {
     padding-top: 2px;
     height: 60px;
 }
+.input{
+    transform: translateX(0px);
+}
 /*-----------------------------------------------------
                     Menu Mobile :
 -----------------------------------------------------*/

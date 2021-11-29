@@ -54,20 +54,20 @@
                 $cours->setDateCours($dDate);
                 $cours->addCours($bdd, $tag, $matin);
                 $cours->addCours($bdd, $tag, $apresMidi);
-                echo "$dDate<br>";
-                echo "$tag<br>";
-                echo "$matin<br>";
-                echo $jours[$date->format("w")];
-                echo "<br>";
-                echo "$dDate<br>";
-                echo "$tag<br>";
-                echo "$apresMidi<br>";
-                echo $jours[$date->format("w")];
-                echo "<br>";               
-                echo "$cpt<br>";
+                // echo "$dDate<br>";
+                // echo "$tag<br>";
+                // echo "$matin<br>";
+                // echo $jours[$date->format("w")];
+                // echo "<br>";
+                // echo "$dDate<br>";
+                // echo "$tag<br>";
+                // echo "$apresMidi<br>";
+                // echo $jours[$date->format("w")];
+                // echo "<br>";               
+                // echo "$cpt<br>";
             }
         }
-        echo "nbr de jours = $cpt";
+        echo "<p>Nombre de séances de formation (AM, PM) : $cpt</p>";
     }
 
 

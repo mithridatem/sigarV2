@@ -10,23 +10,21 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     <script src="./script/modal.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <title>Créer les cours</title>
+    <title>Créer un compte admin</title>
 </head>
 <body>
-    <p class = etape>Etape 4</p>
-    <h2>Affecter les stagiaires aux cours :</h2>
-    <form action="" method="get">
-        <h3>Saisir le nom de la session : </h3>
-            <p><select name="id_session">
-            <?php
-                //création d'un objet category
-                $session = new Session($bdd);
-                //appel de la Méthode génération du menu déroulant liste des catégories
-                $session->generateMenu($bdd);
-            ?>
-            </select></p>
-        
-        <input type="submit" value="Afficher">
+    <h2>Créer un compte Administrateur :</h2>
+    <form action="" method="post">
+        <h3>Saisir votre Nom :<h3>
+        <input type="text" name="name_adm" class="input"><br>
+        <h3>Saisir votre Login :<h3>
+        <input type="text" name="pseudo_adm" class="input"><br>
+        <h3>Saisir votre Mot de passe :<h3>
+        <input type="password" name="mdp_admin" class="input"><br>
+        <h3>Confirmer votre Mot de passe :<h3>
+        <input type="password" name="Confirm_mdp_admin" class="input"><br>
+        <br>
+        <input type="submit" value="Créer" class="input">        
     </form>
 </body>
 </html>
