@@ -13,7 +13,7 @@
     <title>Créer les cours</title>
 </head>
 <body>
-    <p class = etape>Etape 3</p>
+    <p class = etape>Etape 4</p>
     <h2>Affecter les stagiaires aux cours :</h2>
     <form action="" method="get">
         <h3>Saisir le nom de la session : </h3>

@@ -32,7 +32,7 @@
             $nameSession = new Session();
             $session = $_GET['id_session'];
             $name_cours = $nameSession->showNameSession($bdd, $session);
-            echo $name_cours;
+            //echo $name_cours;
              try
             {                   
             //requête pour stocker le contenu de toute la table task dans le tableau $donnees
@@ -40,9 +40,11 @@
            //parcours du résultat de la requête
             while($donnees = $reponse->fetch())
             {  
-                $reponse = $bdd->query('INSERT INTO participer(id_stg, id_cours) Values('.$value.', '.$donnees['id_cours'].')');
-                   
-            
+                $bdd->query('INSERT INTO participer(id_stg, id_cours) Values('.$value.', '.$donnees['id_cours'].')');
+                  echo $value;
+                  echo '<br>' ;
+                  echo $donnees['id_cours'];
+                  echo '<br>' ;
             }                
             }
            catch(Exception $e)

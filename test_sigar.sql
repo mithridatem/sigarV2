@@ -6,7 +6,7 @@
 #------------------------------------------------------------
 # Table: module
 #------------------------------------------------------------
-CREATE DATABASE sigar_test;
+
 USE sigar_test;
 CREATE TABLE module(
         id_mod   Int  Auto_increment  NOT NULL ,
