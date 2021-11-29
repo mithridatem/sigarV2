@@ -57,17 +57,16 @@
                 $this->setMdpAdmin(md5($this->getMdpAdmin()));
             }     
             //méthode ajout d'un utilisateur en bdd
-            public function createAdmin($bdd)
+            public function createAdmin($bdd, $name_adm, $pseudo_adm, $mdp_adm)
             {   
                 //récuparation des valeurs de l'objet
-                $name_adm = $this->getNameAdmin();
-                $pseudo_adm = $this->getPseudoAdmin();
-                $mdp_adm = $this->getMdpAdmin();
+                // $name_adm = $this->getNameAdmin();
+                // $pseudo_adm = $this->getPseudoAdmin();
+                // $mdp_adm = $this->getMdpAdmin();
                 try
                 {   
                     //requête ajout d'un utilisateur
-                    $req = $bdd->prepare('INSERT INTO admin(name_adm, pseudo_adm, mdp_adm) 
-                    VALUES (:name_adm, :pseudo_adm, :mdp_adm)');
+                    $req = $bdd->prepare('INSERT INTO admin(name_adm, pseudo_adm, mdp_adm) VALUES (:name_adm, :pseudo_adm, :mdp_adm)');
                     //éxécution de la requête SQL
                     $req->execute(array(
                     'name_adm' => $name_adm,

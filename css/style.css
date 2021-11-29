@@ -54,7 +54,6 @@ h2{
     font-size: 1.4em;
 }
 input{
-    transform: translateY(10px);
     transform: translateX(20px);
 }
 .btn-submit{
@@ -65,6 +64,12 @@ input{
     font-family: Roboto;
     color: red;
     padding-left: 20px;
+}
+input[type="checkbox"]{
+    transform: translateX(0px);
+}
+.error{
+    transform: translateX(-20px);
 }
 /*-----------------------------------------------------
                     Menu desktop :

@@ -56,9 +56,8 @@
                     else{
                         //affichage du contenu de la requete
                         echo '<p><input type="checkbox" name="id_stg[]" value="'.$donnees['id_stg'].'"/>
-                        Id : '.$donnees['id_stg'].' Nom : '.$donnees['name_stg'].' Prenom : '.$donnees['prenom_stg'].'</p>';       
-                    }
-                                  
+                        N° : '.$donnees['id_stg'].' Nom : '.$donnees['name_stg'].' Prenom : '.$donnees['prenom_stg'].'</p>';       
+                    }                                  
                }
            }
            catch(Exception $e)

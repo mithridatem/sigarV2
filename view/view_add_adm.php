@@ -14,15 +14,15 @@
 </head>
 <body>
     <h2>Créer un compte Administrateur :</h2>
-    <form action="" method="post">
+    <form action="./addAdm.php" method="post">
         <h3>Saisir votre Nom :<h3>
         <input type="text" name="name_adm" class="input"><br>
         <h3>Saisir votre Login :<h3>
         <input type="text" name="pseudo_adm" class="input"><br>
         <h3>Saisir votre Mot de passe :<h3>
-        <input type="password" name="mdp_admin" class="input"><br>
+        <input type="password" name="mdp_adm" class="input"><br>
         <h3>Confirmer votre Mot de passe :<h3>
-        <input type="password" name="Confirm_mdp_admin" class="input"><br>
+        <input type="password" name="confirm_mdp_adm" class="input"><br>
         <br>
         <input type="submit" value="Créer" class="input">        
     </form>

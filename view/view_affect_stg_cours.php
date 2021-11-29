@@ -16,7 +16,7 @@
     <p class = etape>Etape 4</p>
     <h2>Affecter les stagiaires aux cours :</h2>
     <form action="" method="get">
-        <h3>Saisir le nom de la session : </h3>
+        <h3>Sélectionner la session : </h3>
             <p><select name="id_session">
             <?php
                 //création d'un objet category
