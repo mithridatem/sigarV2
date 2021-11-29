@@ -1,4 +1,12 @@
 <?php 
+    /*-----------------------------------------------------
+                        Controler :
+    -----------------------------------------------------*/
+    /*-----------------------------------------------------
+                        Session :
+    -----------------------------------------------------*/
+    //création de la session
+    session_start();
     // Connect to database
     include './utils/connectBdd.php';
     include './model/stagiaires.php';

@@ -80,7 +80,105 @@
                 die('Erreur : '.$e->getMessage());
                 }        
             }
-    
+            //méthode pour vérifier si un utilisateur existe dans la bdd
+        public function showUser($bdd)
+        {
+             //récuparation des valeurs de l'objet       
+             $pseudo_adm = $this->getPseudoAdmin();        
+             try
+             {                   
+                //requête pour stocker le contenu de toute la table le contenu est stocké dans le tableau $reponse
+                $reponse = $bdd->query('SELECT * FROM admin WHERE pseudo_adm = "'.$pseudo_adm.'" 
+                 LIMIT 1');
+                //parcours du résultat de la requête
+                while($donnees = $reponse->fetch())
+                {   
+                   //return $donnees['mdp_user'];
+                    if($pseudo_adm == $donnees['pseudo_adm'])
+                    {
+                        //retourne true si il existe
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }                
+             }
+             catch(Exception $e)
+             {
+                //affichage d'une exception en cas d’erreur
+                die('Erreur : '.$e->getMessage());
+             }        
+        }
+        //méthode qui génére les super globales avec les valeurs d'attributs d'un utilisateur en bdd
+        public function generateSuperGlobale($bdd)
+        {
+            //récuparation des valeurs de l'objet       
+            $pseudo_adm = $this->getPseudoAdmin();        
+            $mdp_adm = $this->getMdpAdmin();        
+            try
+            {                   
+               //requête pour stocker le contenu de toute la table le contenu est stocké dans le tableau $reponse
+               $reponse = $bdd->query('SELECT * FROM admin WHERE pseudo_adm = "'.$pseudo_adm.'" AND mdp_adm = "'.$mdp_adm.'" LIMIT 1');
+               //parcours du résultat de la requête
+               while($donnees = $reponse->fetch())
+               {   
+                  //return $donnees['mdp_user'];
+                   if($pseudo_adm == $donnees['pseudo_adm'] AND $mdp_adm == $donnees['mdp_adm'])
+                   {
+                        $id =  $donnees['id_adm'];
+                        $name =  $donnees['name_adm'];
+                        $pseudo =  $donnees['pseudo_adm'];
+                        $mdp =  $donnees['mdp_adm'];
+                        //création des super globales Session                
+                        $_SESSION['idAdm'] =  $id;
+                        $_SESSION['nameAdm'] = $name;
+                        $_SESSION['pseudoAdm'] = $pseudo;
+                        $_SESSION['mdpAdm'] = $mdp;
+                        $_SESSION['connected'] = true;
+                   }
+               }                
+            }
+            catch(Exception $e)
+            {
+            //affichage d'une exception en cas d’erreur
+            die('Erreur : '.$e->getMessage());
+            }   
+        }
+         
+        //méthode pour tester la connexion d'un utilisateur
+        public function userConnnected($bdd)
+        {
+             //récuparation des valeurs de l'objet       
+             $pseudo_adm = $this->getPseudoAdmin();        
+             $mdp_adm = $this->getMdpAdmin();        
+             try
+             {                   
+                //requête pour stocker le contenu de toute la table le contenu est stocké dans le tableau $reponse
+                $reponse = $bdd->query('SELECT * FROM admin WHERE pseudo_adm = "'.$pseudo_adm.'" 
+                AND mdp_adm = "'.$mdp_adm.'" LIMIT 1');
+                //parcours du résultat de la requête
+                while($donnees = $reponse->fetch())
+                {   
+                   //return $donnees['mdp_user'];
+                    if($pseudo_adm == $donnees['pseudo_adm'] AND $mdp_adm == $donnees['mdp_adm'])
+                    {
+                        //retourne true si il existe (pseudo et mdp)
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }                
+             }
+             catch(Exception $e)
+             {
+             //affichage d'une exception en cas d’erreur
+             die('Erreur : '.$e->getMessage());
+             }        
+        }
     }
 
 

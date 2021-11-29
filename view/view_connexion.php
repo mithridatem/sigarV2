@@ -16,11 +16,12 @@
     <h2>Connexion :</h2>
     <form action="" method="post">
         <h3>saisir votre login :</h3>
-        <input type="text" name="login" id="login"><br>
+        <input type="text" name="pseudo_adm" id="login"><br>
         <h3>Saisir votre mot de passe : </h3>
-        <input type="text" name="mdp" id="mdp"><br>
+        <input type="password" name="mdp_adm" id="mdp"><br>
         <br>
         <input type="submit" value="Connexion">
     </form>
+    <p id="message"></p>
 </body>
 </html>

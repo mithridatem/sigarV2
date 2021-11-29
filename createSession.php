@@ -1,4 +1,12 @@
 <?php
+    /*-----------------------------------------------------
+                        Controler :
+    -----------------------------------------------------*/
+    /*-----------------------------------------------------
+                        Session :
+    -----------------------------------------------------*/
+    //création de la session
+    session_start();
     include './view/menu.php';
     include './view/view_create_session.php';
     include './utils/connectBdd.php';

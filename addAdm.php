@@ -1,5 +1,13 @@
 <?php
     /*-----------------------------------------------------
+                        Controler :
+    -----------------------------------------------------*/
+    /*-----------------------------------------------------
+                        Session :
+    -----------------------------------------------------*/
+    //création de la session
+    session_start();
+    /*-----------------------------------------------------
                         Imports :
     -----------------------------------------------------*/
     include './utils/connectBdd.php';
@@ -20,7 +28,7 @@
             $adm->setPseudoAdmin($_POST['pseudo_adm']);
             $mdp = $adm->getMdpAdmin();
             $adm->createAdmin($bdd,$_POST['name_adm'], $_POST['pseudo_adm'], $mdp);
-            echo '<p class = "error">L\'admin : '.$_POST['name_adm'].' a été ajouté !!!</p>';
+            echo '<p class = "error">L\' administrateur : <span id ="spanning">'.$_POST['name_adm'].'</span> a été ajouté !!!</p>';
         }
         else{            
             echo '<p class = "error">Les mots de passe ne sont pas identiques !!!</p>';

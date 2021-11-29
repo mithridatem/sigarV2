@@ -71,6 +71,9 @@ input[type="checkbox"]{
 .error{
     transform: translateX(-20px);
 }
+#spanning{
+    color: red;
+}
 /*-----------------------------------------------------
                     Menu desktop :
 -----------------------------------------------------*/
