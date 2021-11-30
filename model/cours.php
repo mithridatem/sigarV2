@@ -111,24 +111,48 @@
             } 
         }
         //afficher les cours :
-        public function showAllCours($bdd, $date){
-            try
-            {
-                //requête pour stocker le contenu de toute la table le contenu est stocké dans le tableau $reponse
-                $reponse = $bdd->query('SELECT id_cours, tag_cours, crenaux_cours, date_cours FROM cours WHERE date_cours = "'.$date.'"');
-                //parcours du résultat de la requête
-                while($donnees = $reponse->fetch())
-                {   
-                    $dateFr = strftime("%e %m %Y",strtotime($donnees['date_cours']));
-                    echo '<p><a href="./form_show_seance.php?id_cours='.$donnees['id_cours'].'">'.$donnees['tag_cours'].' '.$dateFr.' 
-                    '.$donnees['crenaux_cours'].'</a></p>';
-                } 
+        public function showAllCours($bdd, $date, $heure){
+            if($heure>12){
+                try
+                {
+                    //requête pour stocker le contenu de toute la table le contenu est stocké dans le tableau $reponse
+                    $reponse = $bdd->query('SELECT id_cours, tag_cours, crenaux_cours, date_cours FROM cours WHERE 
+                    crenaux_cours = "AM" AND date_cours = "'.$date.'"');
+                    //parcours du résultat de la requête
+                    while($donnees = $reponse->fetch())
+                    {   
+                        $dateFr = strftime("%e/%m/%Y",strtotime($donnees['date_cours']));
+                        echo '<p><a href="./form_show_seance.php?id_cours='.$donnees['id_cours'].'">'.$donnees['tag_cours'].' '.$dateFr.' 
+                        '.$donnees['crenaux_cours'].'</a></p>';
+                    } 
+                }
+                catch(Exception $e)
+                {
+                    //affichage d'une exception en cas d’erreur
+                    die('Erreur : '.$e->getMessage());
+                }
             }
-            catch(Exception $e)
-            {
-            //affichage d'une exception en cas d’erreur
-            die('Erreur : '.$e->getMessage());
-            } 
+            else{
+                try
+                {
+                    //requête pour stocker le contenu de toute la table le contenu est stocké dans le tableau $reponse
+                    $reponse = $bdd->query('SELECT id_cours, tag_cours, crenaux_cours, date_cours FROM cours WHERE 
+                    crenaux_cours = "PM" AND date_cours = "'.$date.'"');
+                    //parcours du résultat de la requête
+                    while($donnees = $reponse->fetch())
+                    {   
+                        $dateFr = strftime("%e/%m/%Y",strtotime($donnees['date_cours']));
+                        echo '<p><a href="./form_show_seance.php?id_cours='.$donnees['id_cours'].'">'.$donnees['tag_cours'].' '.$dateFr.' 
+                        '.$donnees['crenaux_cours'].'</a></p>';
+                    } 
+                }
+                catch(Exception $e)
+                {
+                    //affichage d'une exception en cas d’erreur
+                    die('Erreur : '.$e->getMessage());
+                }
+            }
+             
         }
 
     }

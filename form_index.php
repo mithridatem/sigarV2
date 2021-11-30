@@ -52,7 +52,7 @@
                 if($_SESSION['connected'])
                 {
                     //redirection vers index.php?connected
-                    header("Location: form_index.php?connected");
+                    header("Location: form_show_session.php");
                 }
            }
            //test mot de passe incorrect
@@ -85,16 +85,7 @@
         echo 'message.innerHTML = "Le mot de passe est incorrect !!!";';
         echo '</script>';
     }
-    //test connexion ok
-    if(isset($_GET['connected']))
-    {   
     
-    //script js
-    echo '<script>';
-    //script js remplacement du message
-    echo 'message.innerHTML = "Connecté !!!";';
-    echo '</script>';   
-}
     //test deconnexion
     if(isset($_GET['deconnected']))
     {   

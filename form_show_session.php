@@ -18,7 +18,16 @@
     /*-----------------------------------------------------
                         Tests :
     -----------------------------------------------------*/
-    $cours = new Cours();
-    $date = date("Y-m-d");
-    $cours->showAllCours($bdd, $date);
+    if(isset($_POST['date_filter'])){
+        $date = $_POST['date_filter'];
+        $cours = new Cours();
+        $heure = date("H");
+        $cours->showAllCours($bdd, $date, $heure);
+    }
+    else{
+        $date = date("Y-m-d");
+        $cours = new Cours();
+        $heure = date("H");
+        $cours->showAllCours($bdd, $date, $heure);
+    }
 ?>

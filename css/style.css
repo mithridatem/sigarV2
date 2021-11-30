@@ -74,6 +74,9 @@ input[type="checkbox"]{
 #spanning{
     color: red;
 }
+#italic{
+    font-style: oblique;
+}
 /*-----------------------------------------------------
                     Menu desktop :
 -----------------------------------------------------*/

@@ -14,6 +14,13 @@
 </head>
 <body>
     <h2>Liste des sessions :</h2>
-    
+    <h3 class="etape">Cliquer sur une session pour éffectuer votre émargement</h3>
+    <form action="" method="post">
+        <h3 id="italic">Filtrer par date la liste :</h3>
+        <input type="date" name="date_filter">
+        <br>
+        <br>
+        <input type="submit" value="Afficher">
+    </form>
 </body>
 </html>
