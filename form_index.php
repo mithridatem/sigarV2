@@ -34,40 +34,36 @@
         $pseudo = $_POST['pseudo_form'];
         $mdp = $_POST['mdp_form'];
         //Nouvelle instance de User
-        $adm = new Admin();
-        $adm->setPseudoAdmin($_POST['pseudo_form']);
-        //chiffrage du mot de passe en md
-        $adm->cryptMdp();
-
+        $form = new Formateur();
+        $form->setPseudoForm($_POST['pseudo_form']);
+        //chiffrage du mot de passe en md5
+        $form->setMdpForm(md5($mdp));
+        $mdp1 = $form->getMdpForm();        
         //test si le compte existe (login)
-        if($adm->showUser($bdd))
+        if($form->showUser($bdd))
         {   
-            //test si le login et le mot de passe correspondent
-            if($adm->userConnnected($bdd))
-            {
+           //test si le login et le mot de passe correspondent
+           $verif = $form->userConnnected($bdd);
+           if($verif == $mdp1)
+           {
                 //génération des super globales 
-                $adm->generateSuperGlobale($bdd);                
+                $form->generateSuperGlobale($bdd);                
                 //test login et mot de passe correct
                 if($_SESSION['connected'])
                 {
                     //redirection vers index.php?connected
                     header("Location: form_index.php?connected");
                 }
-            }
-            //test mot de passe incorrect
-            else
-            {
-                //redirection vers index.php?mdperror
-                header("Location: form_index.php?mdperror");
-            }                  
-        }
-        //test le compte n'existe pas
-        else
-        {
-            //redirection vers index.php?cptnoexist
-            header("Location: form_index.php?cptnoexist");
-        }
-    }
+           }
+           //test mot de passe incorrect
+           else
+           {
+               //redirection vers index.php?mdperror
+               header("Location: form_index.php?mdperror");
+           }        
+        } 
+    }   
+    
     /*-----------------------------------------------------
                 Gestion des messages d'erreurs :
     -----------------------------------------------------*/
@@ -89,16 +85,16 @@
         echo 'message.innerHTML = "Le mot de passe est incorrect !!!";';
         echo '</script>';
     }
-     //test connexion ok
-     if(isset($_GET['connected']))
-     {   
-        
-        //script js
-        echo '<script>';
-        //script js remplacement du message
-        echo 'message.innerHTML = "Connecté !!!";';
-        echo '</script>';   
-    }
+    //test connexion ok
+    if(isset($_GET['connected']))
+    {   
+    
+    //script js
+    echo '<script>';
+    //script js remplacement du message
+    echo 'message.innerHTML = "Connecté !!!";';
+    echo '</script>';   
+}
     //test deconnexion
     if(isset($_GET['deconnected']))
     {   
@@ -107,5 +103,6 @@
         //script js remplacement du message
         echo 'message.innerHTML = "Déconnecté !!!";';
         echo '</script>';
-    }     
+    }
+    
 ?>

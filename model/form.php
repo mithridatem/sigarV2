@@ -52,14 +52,14 @@
         }
         public function setMdpForm($newMdpform)
         {
-            $this->mdp_form = $newMdpForm;
+            $this->mdp_form = $newMdpform;
         }
         /*-----------------------------------------------------
                             Méthodes :
         -----------------------------------------------------*/
         //methode chiffrage d'un mot du mot de passe en md5 :
         public function cryptMdp(){
-            $this->setMdpAdmin(md5($this->getMdpAdmin()));
+            $this->setMdpForm(md5($this->getMdpForm()));
         }     
         //méthode ajout d'un utilisateur en bdd
         public function createForm($bdd, $name_form, $first_name_form, $pseudo_form, $mdp_form)
@@ -161,21 +161,11 @@
              try
              {                   
                 //requête pour stocker le contenu de toute la table le contenu est stocké dans le tableau $reponse
-                $reponse = $bdd->query('SELECT * FROM formateur WHERE pseudo_form = "'.$pseudo_form.'" 
-                AND mdp_adm = "'.$mdp_adm.'" LIMIT 1');
+                $reponse = $bdd->query('SELECT mdp_form FROM formateur WHERE pseudo_form = "'.$pseudo_form.'"');
                 //parcours du résultat de la requête
                 while($donnees = $reponse->fetch())
                 {   
-                   //return $donnees['mdp_form'];
-                    if($pseudo_form == $donnees['pseudo_form'] AND $mdp_form == $donnees['mdp_form'])
-                    {
-                        //retourne true si il existe (pseudo et mdp)
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                   return $donnees['mdp_form'];
                 }                
              }
              catch(Exception $e)
