@@ -11,9 +11,9 @@
                             imports :
     -----------------------------------------------------*/
     include './utils/connectBdd.php';
-    include './model/admin.php';    
-    include './view/menu.php';
-    include './view/view_connexion.php';
+    include './model/form.php';    
+    include './view/form_menu.php';
+    include './view/view_form_connexion.php';
 
     /*-----------------------------------------------------
                             Tests :
