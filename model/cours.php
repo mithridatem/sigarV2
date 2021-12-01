@@ -47,11 +47,6 @@
         {
             $this->crenaux_cours = $newCrenauxCours;
         }
-
-
-
-
-
         /*-----------------------------------------------------
                             Méthodes :
         -----------------------------------------------------*/
@@ -77,7 +72,7 @@
             die('Erreur : '.$e->getMessage());
             }
         }
-        //méthode update task (valider une tâche)
+        //fonction affecter cours (ajouter les stagaires)
         public function affectcours($bdd, $value)
         {
             try
@@ -92,7 +87,7 @@
                 die('Erreur : '.$e->getMessage());
             }
         }
-        //afficher les cours :
+        //Fonction afficher les cours d'une session:
         public function showCours($bdd, $session){
             try
             {
@@ -110,7 +105,7 @@
             die('Erreur : '.$e->getMessage());
             } 
         }
-        //afficher les cours :
+        //afficher les tous les cours :
         public function showAllCours($bdd, $date, $heure){
             if($heure>12){
                 try
@@ -154,6 +149,7 @@
             }
              
         }
+
 
     }
 

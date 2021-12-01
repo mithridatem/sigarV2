@@ -13,10 +13,28 @@
     <title>Emargement</title>
 </head>
 <body>
-    <h2>Emargement :</h2>
-    <h3 class="etape">Etape 1 Sélectionner un module dans la liste</h3>
-    <form action="" method="post">
-        <h3 class="etape">Etape 2 Cocher les stagiaires présents : </h3>
+    <h2>Effectuer l'émargement du cours :</h2>
+    <h3 class="etape">Etape 1 -> Sélectionner un module dans la liste : </h3>
+    <form action="./form_show_seance.php?id_cours=<?php echo $_GET['id_cours']?>" method="post">
+        
+
+        <p><select name="id_mod">
+            <?php
+                //création d'un objet category
+                $mod = new Module($bdd);
+                //appel de la Méthode génération du menu déroulant liste des catégories
+                $mod->generateMenu($bdd);
+            ?>
+            </select></p>
+            <h3 class="etape">Etape 2 -> Cocher les stagiaires présents : </h3>
+            <?php
+            if(isset($_GET['id_cours'])){
+                $id = $_GET['id_cours'];
+            }
+            $stg = new Stagiaires();
+            $stg->showStagiairesFromCours($bdd, $id);
+            ?>
+            <br><input type="submit" value="Emarger">
     </form>
     
 </body>

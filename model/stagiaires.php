@@ -65,6 +65,30 @@
                die('Erreur : '.$e->getMessage());
            }
         }
+        //afficher les stagiaires d'une session :
+        public function showStagiairesFromCours($bdd, $id){
+            try
+            {   //requête qui récupére toutes les tâches non terminées d'un utilisateur
+                $reponse = $bdd->query('SELECT * FROM participer inner join stagiaire WHERE participer.id_stg = stagiaire.id_stg 
+                and id_cours = '.$id.'');
+                //boucle pour parcourir et afficher le contenu de chaque ligne de la requete
+                while ($donnees = $reponse->fetch())
+                {   
+                     if($donnees['prenom_stg'] =="" ){
+ 
+                     }
+                     else{
+                         //affichage du contenu de la requete
+                         echo '<p><input type="checkbox" name="id_stg[]" value="'.$donnees['id_stg'].'"/>
+                         '.$donnees['name_stg'].', '.$donnees['prenom_stg'].'</p>';       
+                     }                                  
+                }
+            }
+            catch(Exception $e)
+            {   //affichage d'une exception
+                die('Erreur : '.$e->getMessage());
+            }
+         }
     }
 
 
