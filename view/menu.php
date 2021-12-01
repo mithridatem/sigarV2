@@ -20,6 +20,7 @@
         <a href="./import_stg.php"><li>Importer les stagiaires</li></a>
         <a href="./addCours.php"><li>Ajouter les cours</li></a>
         <a href="./affectStgCours.php"><li>Affecter les stagiaires -> cours</li></a>
+        <a href="./addModule.php"><li>Créer un module de formation</li></a>
         <a href="./deconnected.php"><li>Deconnexion</li></a>';
     }
     //si l'utilisateur n'est pas connecté (connexion, ajouter compte, deconnexion)  

@@ -30,7 +30,7 @@
                             Méthodes :
     -----------------------------------------------------*/
     //fonction création d'un module :
-    public function createModule(){
+    public function createModule($bdd){
         $name = $this->name_mod;
         try
         {   
