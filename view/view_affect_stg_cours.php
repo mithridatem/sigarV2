@@ -26,7 +26,7 @@
             ?>
             </select></p>
         
-        <input type="submit" value="Afficher">
+        <input type="submit" value="Affecter">
     </form>
 </body>
 </html>
