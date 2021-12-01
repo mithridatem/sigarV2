@@ -15,7 +15,7 @@
 <body>
     <h2>Connexion :</h2>
     <form action="" method="post">
-        <h3>saisir votre login :</h3>
+        <h3>Saisir votre login :</h3>
         <input type="text" name="pseudo_form" id="login"><br>
         <h3>Saisir votre mot de passe : </h3>
         <input type="password" name="mdp_form" id="mdp"><br>
