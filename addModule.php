@@ -19,6 +19,6 @@
         echo '<p>création du module de formation '.$_POST['name_mod'].'</p>';
     }
     else{
-        echo '<p>Veuillez compléter le nom du module de formation : </p>';
+        echo '<p>Veuillez compléter le nom du module de formation !</p>';
     }
 ?>
