@@ -20,8 +20,21 @@
                         Tests :
     -----------------------------------------------------*/
     if(isset($_POST['id_mod'])){
+
         if(isset($_POST['id_stg']))
         {   
+             //requête mise à jour de le présence des stagiaires
+             try
+             {                   
+                 //requête pour mettre à jour la table participer
+                 $reponse = $bdd->query('UPDATE cours set id_mod = '.$_POST['id_mod'].', id_form = '.$_SESSION['idForm'].' 
+                 WHERE id_cours = '.$id.'');              
+             }
+             catch(Exception $e)
+             {
+                 //affichage d'une exception en cas d’erreur
+                 die('Erreur : '.$e->getMessage());
+             }
             // boucle pour chaque stagiares cochées
              foreach($_POST['id_stg'] as $value)
             {   
