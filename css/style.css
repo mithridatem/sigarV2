@@ -77,8 +77,14 @@ input[type="checkbox"]{
 #italic{
     font-style: oblique;
 }
-#crenaux_cours{
+#crenaux_cours,#month, #tag{
     transform: translateX(20px);
+}
+#alert{
+    color : red;
+}
+#noAlert{
+    color : green;
 }
 /*-----------------------------------------------------
                     Menu desktop :

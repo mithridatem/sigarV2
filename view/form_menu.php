@@ -17,6 +17,7 @@
     {
         echo '
         <a href="./form_show_session.php"><li>Liste session</li></a>
+        <a href="./form_show_absence.php"><li>Suivi absences mensuel</li></a>
         <a href="./form_deconnected.php"><li>Deconnexion</li></a>        
         ';
     }

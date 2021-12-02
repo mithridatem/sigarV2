@@ -88,7 +88,27 @@
             die('Erreur : '.$e->getMessage());
             }
         }
+        //fonction afficher la liste des sessions (menu déroulant):
+        public function generateMenu2($bdd)
+        {      
+            try
+            {                   
+               //requête pour stocker le contenu de toute la table task dans le tableau $donnees
+               $reponse = $bdd->query('SELECT * FROM session');
+               //parcours du résultat de la requête
+               while($donnees = $reponse->fetch())
+               {   
+                  //liste deroulante <select> html
+                  echo '<option value="'.$donnees['name_session'].'">'.$donnees['name_session'].'</option>';
+                }
 
+            }
+            catch(Exception $e)
+            {
+            //affichage d'une exception en cas d’erreur
+            die('Erreur : '.$e->getMessage());
+            }
+        }
     }
 
 
