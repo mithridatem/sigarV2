@@ -16,8 +16,14 @@
     <h2>Liste des sessions :</h2>
     <h3 class="etape">Cliquer sur une session pour éffectuer votre émargement</h3>
     <form action="" method="post">
-        <h3 id="italic">Filtrer la liste par date  :</h3>
-        <input type="date" name="date_filter">
+        <h3 id="italic">Filtrer la liste par date et créneaux (matin, après-midi):</h3>
+        <div>
+            <input type="date" name="date_filter" value= <?php $date = date("Y-m-d"); echo "$date"; ?>> 
+            <select id="crenaux_cours" name="crenaux_cours">
+                <option value="AM"  selected>Matin</option>
+                <option value="PM">Après-Midi</option>
+                </select>
+        </div>
         <br>
         <br>
         <input type="submit" value="Afficher">

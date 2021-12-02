@@ -112,7 +112,7 @@
                 {
                     //requête pour stocker le contenu de toute la table le contenu est stocké dans le tableau $reponse
                     $reponse = $bdd->query('SELECT id_cours, tag_cours, crenaux_cours, date_cours FROM cours WHERE 
-                    date_cours = "'.$date.'"');
+                    date_cours = "'.$date.'" AND crenaux_cours = "'.$heure.'"');
                     //parcours du résultat de la requête
                     while($donnees = $reponse->fetch())
                     {   
