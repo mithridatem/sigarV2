@@ -130,14 +130,14 @@
             
              
         }
-        public function showAbscurrentMonth($bdd, $tag, $numMonth)
+        public function showAbscurrentMonth($bdd, $tag, $dateDeb, $dDay)
         {
             try
             {
                 //requête pour stocker le contenu de toute la table le contenu est stocké dans le tableau $reponse
                 $reponse = $bdd->query('SELECT COUNT(presence IS NULL) AS nbrAbs FROM participer INNER JOIN cours WHERE 
                 participer.id_cours = cours.id_cours AND cours.tag_cours = "'.$tag.'" 
-                AND MONTH(cours.date_cours) = '.$numMonth.'');
+                AND cours.date_cours BETWEEN "'.$dateDeb.'" AND "'.$dDay.'"');
                 //parcours du résultat de la requête
                 while($donnees = $reponse->fetch())
                 {   
@@ -150,17 +150,38 @@
                     die('Erreur : '.$e->getMessage());
                 }
         }
-        public function showAbscurrentMonthAll($bdd, $numMonth)
+        public function showAllAbsByMonth($bdd, $tag, $month)
         {
             try
             {
                 //requête pour stocker le contenu de toute la table le contenu est stocké dans le tableau $reponse
-                $reponse = $bdd->query('SELECT COUNT(presence IS NULL) AS nbrAbs, cours.tag_cours as tag, MONTH(cours.date_cours) AS date FROM participer INNER JOIN cours WHERE 
-                participer.id_cours = cours.id_cours AND MONTH(cours.date_cours) = '.$numMonth.' GROUP BY cours.tag_cours');
+                $reponse = $bdd->query('SELECT COUNT(presence IS NULL) AS nbrAbs FROM participer INNER JOIN cours WHERE 
+                participer.id_cours = cours.id_cours AND cours.tag_cours = "'.$tag.'" 
+                AND MONTH(cours.date_cours) = '.$month.'');
                 //parcours du résultat de la requête
                 while($donnees = $reponse->fetch())
                 {   
-                    echo '<p>'.$donnees['tag'].' -Absences totale du mois : '.$donnees['nbrAbs'].'</p>';
+                   return $donnees['nbrAbs'];
+                } 
+            }
+                catch(Exception $e)
+                {
+                    //affichage d'une exception en cas d’erreur
+                    die('Erreur : '.$e->getMessage());
+                }
+        }
+        public function showAbscurrentMonthAll($bdd, $dateDeb, $dDays)
+        {
+            try
+            {
+                //requête pour stocker le contenu de toute la table le contenu est stocké dans le tableau $reponse
+                $reponse = $bdd->query('SELECT COUNT(presence IS NULL) AS nbrAbs, cours.tag_cours as tag  
+                FROM participer INNER JOIN cours WHERE  participer.id_cours = cours.id_cours 
+                AND cours.date_cours BETWEEN "'.$dateDeb.'" AND "'.$dDays.'" GROUP BY cours.tag_cours;');
+                //parcours du résultat de la requête
+                while($donnees = $reponse->fetch())
+                {   
+                    echo '<p>'.$donnees['tag'].' -Absences totale du mois : '.$donnees['nbrAbs'].' demi-journées</p>';
                 } 
             }
                 catch(Exception $e)
