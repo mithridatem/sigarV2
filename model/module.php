@@ -48,6 +48,24 @@
         die('Erreur : '.$e->getMessage());
         }
     }
+    //fonction création d'un module import :
+    public function createModuleImport($bdd,$name){
+        try
+        {   
+            //requête ajout d'un utilisateur
+            $req = $bdd->prepare('INSERT INTO module(name_mod) 
+            VALUES (:name_mod)');
+            //éxécution de la requête SQL
+            $req->execute(array(
+            'name_mod' => $name,
+        ));
+        }
+        catch(Exception $e)
+        {
+        //affichage d'une exception en cas d’erreur
+        die('Erreur : '.$e->getMessage());
+        }
+    }
     //afficher nom du module
     public function showNameModule($bdd, $id){
         try
@@ -76,9 +94,17 @@
            $reponse = $bdd->query('SELECT * FROM module');
            //parcours du résultat de la requête
            while($donnees = $reponse->fetch())
-           {   
-              //liste deroulante <select> html
-              echo '<option value="'.$donnees['id_mod'].'">'.$donnees['name_mod'].'</option>';
+           {    
+                //test nettoyage import des modules
+                if(substr($donnees['name_mod'], 0, 3) == "ï»¿"){
+                    //liste deroulante <select> html
+                    echo '<option value="'.$donnees['id_mod'].'">'.substr($donnees['name_mod'], 3).'</option>';
+                }
+                else{
+                    //liste deroulante <select> html
+                    echo '<option value="'.$donnees['id_mod'].'">'.$donnees['name_mod'].'</option>';
+                }
+                
             }
 
         }
