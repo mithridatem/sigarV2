@@ -25,11 +25,10 @@
     else
     {
         echo '
-            <a href="./form_index.php"><li>Connexion</li></a>
-            <a href="./form_addCpt.php"><li>Ajouter compte</li></a>
-            ';  
+        <a href="./form_index.php"><li>Connexion</li></a>
+        <a href="./form_addCpt.php"><li>Ajouter compte</li></a>
+        ';  
     }
-
 ?>
         </ul>            
     </nav>

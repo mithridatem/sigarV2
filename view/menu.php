@@ -30,7 +30,7 @@
         echo '
             <a href="./index.php"><li>Connexion</li></a>
             <a href="./addAdm.php"><li>Ajouter compte</li></a>
-            <a href="./deconnected.php"><li>Deconnexion</li></a>';  
+            ';  
     }
 
 ?>      
