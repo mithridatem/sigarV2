@@ -115,10 +115,19 @@
                     date_cours = "'.$date.'" AND crenaux_cours = "'.$heure.'"');
                     //parcours du résultat de la requête
                     while($donnees = $reponse->fetch())
-                    {   
+                    {   if($donnees['crenaux_cours'] == 'AM'){
+                        $crenaux = 'Matin';
                         $dateFr = strftime("%e/%m/%Y",strtotime($donnees['date_cours']));
                         echo '<p><a href="./form_show_seance.php?id_cours='.$donnees['id_cours'].'">'.$donnees['tag_cours'].' '.$dateFr.' 
-                        '.$donnees['crenaux_cours'].'</a></p>';
+                        '.$crenaux.'</a></p>';
+                        }
+                        else{
+                            $crenaux = 'Après-Midi';
+                            $dateFr = strftime("%e/%m/%Y",strtotime($donnees['date_cours']));
+                            echo '<p><a href="./form_show_seance.php?id_cours='.$donnees['id_cours'].'">'.$donnees['tag_cours'].' '.$dateFr.' 
+                            '.$crenaux.'</a></p>';
+                        }
+                        
                     } 
                 }
                 catch(Exception $e)

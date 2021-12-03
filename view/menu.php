@@ -21,7 +21,7 @@
         <a href="./addCours.php"><li>Ajouter les cours</li></a>
         <a href="./affectStgCours.php"><li>Affecter les stagiaires -> cours</li></a>
         <a href="./addModule.php"><li>Créer module</li></a>
-        <a href="./addModule.php"><li>Importer modules</li></a>
+        <a href="./import_module.php"><li>Importer modules</li></a>
         <a href="./deconnected.php"><li>Deconnexion</li></a>';
     }
     //si l'utilisateur n'est pas connecté (connexion, ajouter compte, deconnexion)  

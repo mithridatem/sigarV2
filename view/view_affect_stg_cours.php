@@ -25,8 +25,7 @@
                 $session->generateMenu($bdd);
             ?>
             </select></p>
-        
-        <input type="submit" value="Affecter">
+        <input type="submit" value="Selectionner">
     </form>
 </body>
 </html>
