@@ -144,9 +144,9 @@
             try
             {
                 //requête pour stocker le contenu de toute la table le contenu est stocké dans le tableau $reponse
-                $reponse = $bdd->query('SELECT COUNT(presence IS NULL) AS nbrAbs FROM participer INNER JOIN cours WHERE 
+                $reponse = $bdd->query('SELECT COUNT(id_stg) AS nbrAbs FROM participer INNER JOIN cours WHERE 
                 participer.id_cours = cours.id_cours AND cours.tag_cours = "'.$tag.'" 
-                AND cours.date_cours BETWEEN "'.$dateDeb.'" AND "'.$dDay.'" limit 1');
+                AND cours.date_cours BETWEEN "'.$dateDeb.'" AND "'.$dDay.'" and presence IS null');
                 //parcours du résultat de la requête
                 while($donnees = $reponse->fetch())
                 {   
@@ -164,7 +164,7 @@
             try
             {
                 //requête pour stocker le contenu de toute la table le contenu est stocké dans le tableau $reponse
-                $reponse = $bdd->query('SELECT COUNT(presence IS NULL) AS nbrAbs FROM participer INNER JOIN cours WHERE 
+                $reponse = $bdd->query('SELECT COUNT(id_stg) AS nbrAbs FROM participer INNER JOIN cours WHERE 
                 participer.id_cours = cours.id_cours AND cours.tag_cours = "'.$tag.'" 
                 AND MONTH(cours.date_cours) = '.$month.' AND participer.presence IS NULL');
                 //parcours du résultat de la requête
@@ -184,9 +184,9 @@
             try
             {
                 //requête pour stocker le contenu de toute la table le contenu est stocké dans le tableau $reponse
-                $reponse = $bdd->query('SELECT COUNT(presence IS NULL) AS nbrAbs, cours.tag_cours as tag  
+                $reponse = $bdd->query('SELECT COUNT(id_stg) AS nbrAbs, cours.tag_cours as tag  
                 FROM participer INNER JOIN cours WHERE  participer.id_cours = cours.id_cours 
-                AND cours.date_cours BETWEEN "'.$dateDeb.'" AND "'.$dDays.'" GROUP BY cours.tag_cours;');
+                AND cours.date_cours BETWEEN "'.$dateDeb.'" AND "'.$dDays.'" AND presence IS NULL GROUP BY cours.tag_cours;');
                 //parcours du résultat de la requête
                 while($donnees = $reponse->fetch())
                 {   
@@ -200,19 +200,4 @@
                 }
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
