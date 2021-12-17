@@ -7,7 +7,7 @@
 # Table: module
 #------------------------------------------------------------
 
-USE sigar_test;
+USE test_sigar;
 CREATE TABLE module(
         id_mod   Int  Auto_increment  NOT NULL ,
         name_mod Varchar (50) NOT NULL

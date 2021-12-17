@@ -186,7 +186,7 @@
                 //requête pour stocker le contenu de toute la table le contenu est stocké dans le tableau $reponse
                 $reponse = $bdd->query('SELECT COUNT(presence IS NULL) AS nbrAbs, cours.tag_cours as tag  
                 FROM participer INNER JOIN cours WHERE  participer.id_cours = cours.id_cours 
-                AND cours.date_cours BETWEEN "'.$dateDeb.'" AND "'.$dDays.'" AND participer.presence IS NULL GROUP BY cours.tag_cours;');
+                AND cours.date_cours BETWEEN "'.$dateDeb.'" AND "'.$dDays.'" GROUP BY cours.tag_cours;');
                 //parcours du résultat de la requête
                 while($donnees = $reponse->fetch())
                 {   
