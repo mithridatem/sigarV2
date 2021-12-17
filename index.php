@@ -31,14 +31,12 @@
     if(isset($_POST['pseudo_adm']) AND isset($_POST['mdp_adm']))
     {
         //création des variables de connexion
-        $pseudo = $_POST['pseudo_adm'];
-        $mdp = $_POST['mdp_adm'];
+        $pseudo = htmlspecialchars($_POST['pseudo_adm']) ;
+        $mdp = htmlspecialchars($_POST['mdp_adm']) ;
         //Nouvelle instance de User
         $adm = new Admin();
-        $adm->setPseudoAdmin($_POST['pseudo_adm']);
-        //chiffrage du mot de passe en md
-        $adm->cryptMdp();
-
+        $adm->setPseudoAdmin($pseudo);
+        $adm->setMdpAdmin(md5($mdp));
         //test si le compte existe (login)
         if($adm->showUser($bdd))
         {   

@@ -23,7 +23,7 @@
     AND isset($_POST['mdp_adm']) AND $_POST['confirm_mdp_adm']){
         if($_POST['mdp_adm'] == $_POST['confirm_mdp_adm']){
             $adm = new Admin();
-            $adm->cryptMdp();
+            $adm->setMdpAdmin(md5($_POST['mdp_adm']));
             $adm->setNameAdmin($_POST['name_adm']);
             $adm->setPseudoAdmin($_POST['pseudo_adm']);
             $mdp = $adm->getMdpAdmin();
