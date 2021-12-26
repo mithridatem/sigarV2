@@ -9,6 +9,8 @@
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>    
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     <script src="./script/modal.js"></script>
+    <script src="./script/script2.js" defer></script>
+
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <title>Emargement</title>
 </head>
@@ -34,6 +36,17 @@
             $stg = new Stagiaires();
             $stg->showStagiairesFromCours($bdd, $id);
             ?>
+            <h3 class="etape">Etape 3 -> Saisir le commentaire de la scéance :</h3>
+            <textarea name="com_cours" id="area">
+                <?php
+                $cours = new Cours;
+                
+            ?>     
+            </textarea>
+            <script>
+                area.innerHTML = "<?php $cours->showComCours($bdd, $_GET['id_cours']);?>"
+            </script>
+            <br>
             <br><input type="submit" value="Emarger">
     </form>
     

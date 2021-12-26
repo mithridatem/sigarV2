@@ -13,6 +13,7 @@
     include './utils/connectBdd.php';
     include './model/form.php';
     include './model/module.php';
+    include './model/cours.php';
     include './model/stagiaires.php';
     include './view/form_menu.php';
     include './view/view_form_show_seance.php';
@@ -52,5 +53,22 @@
             }
             echo '<h3>Les stagiaires sont notés présent</h3>';
         }
+        
     }
+    if(isset($_POST['com_cours'])){
+        //requête mise à jour de le présence des stagiaires
+        try
+        {                   
+            //requête pour mettre à jour la table participer
+            $reponse = $bdd->query('UPDATE cours set com_cours = "'.$_POST['com_cours'].'"
+            WHERE id_cours = '.$id.'');
+            header("Location: form_show_seance.php?id_cours=$id");          
+        }
+        catch(Exception $e)
+        {
+            //affichage d'une exception en cas d’erreur
+            die('Erreur : '.$e->getMessage());
+        }
+    }
+    
 ?>

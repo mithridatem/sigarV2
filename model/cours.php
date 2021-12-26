@@ -199,5 +199,23 @@
                     die('Erreur : '.$e->getMessage());
                 }
         }
+        //Fonction afficher les cours d'une session:
+        public function showComCours($bdd, $id_cours){
+            try
+                {
+                    //requête pour stocker le contenu de toute la table le contenu est stocké dans le tableau $reponse
+                    $reponse = $bdd->query('SELECT com_cours FROM cours WHERE id_cours = '.$id_cours.'');
+                    //parcours du résultat de la requête
+                    while($donnees = $reponse->fetch())
+                    {   
+                        echo $donnees['com_cours'];
+                    }
+                }
+                catch(Exception $e)
+                {
+                    //affichage d'une exception en cas d’erreur
+                    die('Erreur : '.$e->getMessage());
+                }
+        }
     }
 ?>
