@@ -217,5 +217,44 @@
                     die('Erreur : '.$e->getMessage());
                 }
         }
+        //Fonction afficher les cours d'une session:
+        public function showComCoursJson($bdd){
+            try
+                {
+                    //requête pour stocker le contenu de toute la table le contenu est stocké dans le tableau $reponse
+                    $reponse = $bdd->query('SELECT * FROM cours WHERE id_cours > 4 AND id_cours <= 9');
+                    //parcours du résultat de la requête
+                    //Initialiser un tableau
+                    $data = $reponse->fetchAll(PDO::FETCH_ASSOC);
+                    
+                    print_r(json_encode($data));
+                }
+                catch(Exception $e)
+                {
+                    //affichage d'une exception en cas d’erreur
+                    die('Erreur : '.$e->getMessage());
+                }
+        }
+        public function showComCoursJsonV2($bdd){
+            try
+                {
+                    //requête pour stocker le contenu de toute la table le contenu est stocké dans le tableau $reponse
+                    $reponse = $bdd->query('SELECT * FROM cours WHERE id_cours > 4 AND id_cours <= 9');
+                    //parcours du résultat de la requête
+                    //Initialiser un tableau
+                    $data = array();
+                    //Récupérer les lignes
+                    while ($row = $reponse->fetchAll(PDO::FETCH_ASSOC)){
+                        $data[] = $row;
+                    }
+                    //Afficher le tableau au format JSON
+                    echo json_encode($data);
+                }
+                catch(Exception $e)
+                {
+                    //affichage d'une exception en cas d’erreur
+                    die('Erreur : '.$e->getMessage());
+                }
+        }
     }
 ?>
