@@ -86,6 +86,9 @@ input[type="checkbox"]{
 #noAlert{
     color : green;
 }
+#area{
+    transform: translateX(20px);
+}
 /*-----------------------------------------------------
                     Menu desktop :
 -----------------------------------------------------*/
@@ -152,6 +155,10 @@ nav .subnav>div {
 }
 .input{
     transform: translateX(0px);
+}
+#label{
+    display: flex;
+    flex-direction: row;
 }
 /*-----------------------------------------------------
                     Menu Mobile :

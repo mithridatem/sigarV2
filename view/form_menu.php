@@ -2,7 +2,7 @@
     <nav>
         <div class="subnav">
             <img src="./img/menu.svg"  class="burgerButton" width="40px">
-            <div id="tag">
+            <div id="label">
                 <h1>SIGAR Formateur</h1>
                 <img src="./img/logonum.png" id="securise"> 
             </div>
