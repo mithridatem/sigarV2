@@ -13,7 +13,7 @@
     <title>Suivi Absences Hebdo</title>
 </head>
 <body>
-    <h2>Total des absents de la semaine par session :</h2>
+    <h2>Liste des stagiaires absents de la semaine par session :</h2>
     <form action="" method="post">
         <h3>Sélectionner le mois et la session :</h3>
         <div>
