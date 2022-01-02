@@ -13,7 +13,7 @@
     <title>Suivi Absences Hebdo</title>
 </head>
 <body>
-    <h2>Liste des stagiaires absents de la semaine par session :</h2>
+    <h2>Liste des stagiaires absents pour la semaine N° <span id="sem"></span> :</h2>
     <form action="" method="post">
         <h3>Sélectionner le mois et la session :</h3>
         <div>
@@ -32,18 +32,30 @@
         <?php
             if(isset($_POST['date']) AND isset($_POST['tag'])){
                 $myDate = $_POST['date'];
+                //variable numero de semaine
+                $sem = date('W', strtotime($myDate));
+                //affichage du numéro de la semaine
+                echo '<script>
+                   let sem = document.getElementById("sem");
+                   sem.innerHTML = '.$sem.';
+                </script>';
                 $tag = $_POST['tag'];
                 $date = date('W', strtotime("$myDate"));
                 $cours = new Cours;
                 $cours->showAbsHebdoFilter($bdd, $date, $tag);
             }
             else{
-                
+                //variable numero de semaine
+                $sem = date("W");
+                //affichage du numéro de la semaine
+                echo '<script>
+                   let sem = document.getElementById("sem");
+                   sem.innerHTML = '.$sem.';
+                </script>';
                 $week = date('W');
                 $cours = new Cours;
                 $cours->showAbsHebdo($bdd, $week);
-            }
-            
+            }           
         ?>
     <p id="message"></p>
 </body>
