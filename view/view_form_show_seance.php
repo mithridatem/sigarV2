@@ -27,8 +27,8 @@
                 //appel de la Méthode génération du menu déroulant liste des catégories
                 $mod->generateMenu($bdd);
             ?>
-            </select></p>
-            <h3 class="etape">Etape 2 -> Cocher les stagiaires présents : </h3>
+        </select></p>
+        <h3 class="etape">Etape 2 -> Cocher les stagiaires présents : </h3>
             <?php
             if(isset($_GET['id_cours'])){
                 $id = $_GET['id_cours'];
@@ -36,18 +36,17 @@
             $stg = new Stagiaires();
             $stg->showStagiairesFromCours($bdd, $id);
             ?>
-            <h3 class="etape">Etape 3 -> Saisir le commentaire de la scéance :</h3>
-            <textarea name="com_cours" id="area">
-                <?php
-                $cours = new Cours;
-                
-            ?>     
-            </textarea>
-            <script>
-                area.innerHTML = "<?php $cours->showComCours($bdd, $_GET['id_cours']);?>"
-            </script>
-            <br>
-            <br><input type="submit" value="Emarger">
+        <h3 class="etape">Etape 3 -> Saisir le commentaire de la scéance :</h3>
+        <textarea name="com_cours" id="area">
+            <?php
+            $cours = new Cours;
+        ?>     
+        </textarea>
+        <script>
+            area.innerHTML = "<?php $cours->showComCours($bdd, $_GET['id_cours']);?>"
+        </script>
+        <br>
+        <br><input type="submit" value="Emarger">
     </form>
     
 </body>

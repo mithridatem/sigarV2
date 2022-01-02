@@ -199,6 +199,89 @@
                     die('Erreur : '.$e->getMessage());
                 }
         }
+        //fonction afficher tous les absents d'une semaine
+        public function showAbsHebdo($bdd, $week)
+        {
+            try
+            {
+                echo '<table>
+                <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Session</th>
+                <th>Date</th>
+                <th>Créneau horaire</th>
+                </tr>';
+                //requête pour stocker le contenu de toute la table le contenu est stocké dans le tableau $reponse
+                $reponse = $bdd->query('SELECT stagiaire.name_stg AS nom, stagiaire.prenom_stg AS prenom, 
+                cours.tag_cours AS tag, cours.date_cours AS date_cours, cours.crenaux_cours AS creneau
+                FROM `participer` INNER JOIN stagiaire, 
+                cours WHERE participer.id_stg = stagiaire.id_stg AND 
+                participer.id_cours = cours.id_cours 
+                AND presence IS NULL AND week(cours.date_cours) = '.$week.' 
+                ORDER BY cours.date_cours, cours.tag_cours;');
+                //parcours du résultat de la requête
+                while($donnees = $reponse->fetch())
+                {   
+                    echo '<tr>
+                    <td>'.$donnees['nom'].'</td>
+                    <td>'.$donnees['prenom'].'</td>
+                    <td>'.$donnees['tag'].'</td>
+                    <td>'.$donnees['date_cours'].'</td>
+                    <td>'.$donnees['creneau'].'</td>
+                    </tr>';
+                }
+                echo '</table>';
+            }
+            catch(Exception $e)
+                {
+                    //affichage d'une exception en cas d’erreur
+                    die('Erreur : '.$e->getMessage());
+                }
+        }
+        //fonction afficher tous les absents d'une semaine filtré par semaine et session
+        public function showAbsHebdoFilter($bdd, $date, $tag)
+        {
+            try
+            {   
+                echo '<table>
+                <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Session</th>
+                <th>Date</th>
+                <th>Créneau horaire</th>
+                </tr>';
+                //requête pour stocker le contenu de toute la table le contenu est stocké dans le tableau $reponse
+                $reponse = $bdd->query('SELECT stagiaire.name_stg AS nom, stagiaire.prenom_stg AS prenom, 
+                cours.tag_cours AS tag, cours.date_cours AS date_cours, cours.crenaux_cours AS creneau
+                FROM `participer` INNER JOIN stagiaire, 
+                cours WHERE participer.id_stg = stagiaire.id_stg AND 
+                participer.id_cours = cours.id_cours 
+                AND presence IS NULL AND week(cours.date_cours) = '.$date.' AND cours.tag_cours = "'.$tag.'"
+                ORDER BY cours.date_cours, cours.tag_cours;');
+                //parcours du résultat de la requête
+                while($donnees = $reponse->fetch())
+                {   
+                    echo '<tr>
+                    <td>'.$donnees['nom'].'</td>
+                    <td>'.$donnees['prenom'].'</td>
+                    <td>'.$donnees['tag'].'</td>
+                    <td>'.$donnees['date_cours'].'</td>
+                    <td>'.$donnees['creneau'].'</td>
+                    </tr>';
+                }
+                echo '</table>';
+            }
+            catch(Exception $e)
+                {
+                    //affichage d'une exception en cas d’erreur
+                    die('Erreur : '.$e->getMessage());
+                }
+        }
+
+
+
         //Fonction afficher les cours d'une session:
         public function showComCours($bdd, $id_cours){
             try

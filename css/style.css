@@ -89,6 +89,28 @@ input[type="checkbox"]{
 #area{
     transform: translateX(20px);
 }
+table{
+    transform: translateX(20px);
+    
+}
+tr{
+    border: 1px solid #333;
+    height: 40px;
+    font-family: Roboto; 
+    
+}
+th{
+    width: 150px;
+    background-color: black;
+    color: white;
+    
+}
+td{
+   background-color: rgb(234, 238, 234);
+    text-align: center; 
+    vertical-align: middle;
+    font-family: Roboto; 
+}
 /*-----------------------------------------------------
                     Menu desktop :
 -----------------------------------------------------*/
