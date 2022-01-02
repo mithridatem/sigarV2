@@ -39,8 +39,8 @@
         <h3 class="etape">Etape 3 -> Saisir le commentaire de la scéance :</h3>
         <textarea name="com_cours" id="area">
             <?php
-            $cours = new Cours;
-        ?>     
+                $cours = new Cours;
+            ?>     
         </textarea>
         <script>
             area.innerHTML = "<?php $cours->showComCours($bdd, $_GET['id_cours']);?>"
@@ -48,6 +48,5 @@
         <br>
         <br><input type="submit" value="Emarger">
     </form>
-    
 </body>
 </html>
